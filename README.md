@@ -2,6 +2,7 @@
 Jogo desenvolvido para a segunda game Jam do canal Crie Seus Jogos.
 Jogo desenvolvido na pressa, então não espere uma boa organização.
 Programação por mim, arte e efeitos sonoros por Lia Godoy.
+Download do executável em: https://gamejolt.com/games/kenny/615062
 
 Como jogar: "A", "D" (movimentação);
 "Q" - menu; "ESC" - fecha as janelas; 

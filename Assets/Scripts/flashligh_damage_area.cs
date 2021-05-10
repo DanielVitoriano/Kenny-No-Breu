@@ -1,0 +1,28 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class flashligh_damage_area : MonoBehaviour
+{
+    public Game_Controler gc;
+    private BoxCollider2D coll;
+    void Start()
+    {
+        coll = GetComponent<BoxCollider2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void OnTriggerStay2D(Collider2D other){
+        if(other.gameObject.tag == "Enemy"){
+            other.GetComponent<Enemy>().OnHit();
+            if(other.GetComponent<Enemy>().IsDead()){
+                gc.increaseKills();
+            }
+        }
+    }
+}

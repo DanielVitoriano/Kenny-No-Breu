@@ -5,8 +5,8 @@ Programação por mim, arte e efeitos sonoros por Lia Godoy.
 Download do executável em: https://gamejolt.com/games/kenny/615062
 
 Como jogar: "A", "D" (movimentação);
-"Q" - menu; "ESC" - fecha as janelas; 
-"L" - lanterna; "O" - interações.
+"ESC" - menu; "ESC" - fecha as janelas; 
+"F" - lanterna; "E" - interações.
 
 
 Spoilers:

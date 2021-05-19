@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fechatudo : MonoBehaviour
 {
-    public GameObject math, cadeado, abajur, gameover;
+    public GameObject math, cadeado, abajur;// gameover;
     void Start()
     {
         
@@ -17,7 +17,7 @@ public class fechatudo : MonoBehaviour
             math.gameObject.SetActive(false);
             cadeado.gameObject.SetActive(false);
             abajur.gameObject.SetActive(false);
-            gameover.gameObject.SetActive(false);
+            //gameover.gameObject.SetActive(false);
         }
     }
 }

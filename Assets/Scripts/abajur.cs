@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class abajur : MonoBehaviour
 {
-    public GameObject gema_verde;
+    public GameObject gema_verde, jogador;
     private bool interact = false;
     public Light luz;
     private Animator anim;
@@ -21,10 +21,11 @@ public class abajur : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
-            if(Input.GetKeyDown("o") && interact){
+            if(Input.GetKeyDown("e") && interact){
+                gameObject.tag = "Untagged";
                 anim.SetInteger("transition", 1);
                 luz.enabled = true;
-                Instantiate(gema_verde, transform.position, transform.rotation);
+                Instantiate(gema_verde, jogador.GetComponent<Transform>().position, jogador.GetComponent<Transform>().rotation);
             }
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class windows : MonoBehaviour
 {
 
-    public GameObject gema_azul;
+    public GameObject gema_azul, jogador;
     private SpriteRenderer sprite;
     public Sprite windows_open;
     private Light light_windows;
@@ -25,11 +25,12 @@ public class windows : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D other){
-        if(!open && other.gameObject.tag == "Player" && Input.GetKeyDown("o")){
+        if(!open && other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
+            gameObject.tag = "Untagged";
             open = true;
             sprite.sprite = windows_open;
             light_windows.enabled = true;
-            Instantiate(gema_azul, new Vector2(transform.position.x, transform.position.y - 2), transform.rotation);
+            Instantiate(gema_azul, jogador.GetComponent<Transform>().position , jogador.GetComponent<Transform>().rotation);
         }
     }
 

@@ -17,7 +17,8 @@ public class faucet : MonoBehaviour
         
     }
     void OnTriggerStay2D(Collider2D other){
-        if(other.gameObject.tag == "Player" && Input.GetKeyDown("o")){
+        if(other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
+            gameObject.tag = "Untagged";
             anim.SetInteger("transition", 1);
             StartCoroutine(OnWait(1.8f));
 

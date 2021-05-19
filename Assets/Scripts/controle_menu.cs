@@ -23,4 +23,7 @@ public class controle_menu : MonoBehaviour
     public void iniciar(){
         SceneManager.LoadScene("SampleScene");
     }
+    public void tutorial(){
+        SceneManager.LoadScene("tutorial");
+    }
 }

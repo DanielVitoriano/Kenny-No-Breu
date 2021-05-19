@@ -8,15 +8,15 @@ using TMPro;
 public class Game_Controler : MonoBehaviour
 {
     public int interacoes;
-    public GameObject blob, kejoo, soot, bau, gema_amarela;
+    public GameObject blob, kejoo, soot, bau, gema_amarela, raio, jogador;
     private Vector2 pos_blob, pos_kejoo, pos_soot;
     public GameObject game_over;
     public TextMeshProUGUI gameText;
     public float timer,respTime;
-    private float respTime_init;
+    private float respTime_init, xRaio;
     public TextMeshProUGUI timer_text, kills_text, gens_text;
     private int kills, gens;
-    private bool have_key, menu_open, gemaIns = false;
+    private bool have_key, menu_open = false, gemaIns = false;
     //public Text you_die;
     void Start()
     {
@@ -27,8 +27,15 @@ public class Game_Controler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(xRaio <= 0){
+            xRaio = Random.Range(1, 120);
+            Raio();
+        }
+        else xRaio -= Time.deltaTime;
+
         if(interacoes >= 2 && kills >= 3 && !gemaIns) {
-            Instantiate(gema_amarela, transform.position, transform.rotation);
+            Instantiate(gema_amarela, jogador.GetComponent<Transform>().position, jogador.GetComponent<Transform>().rotation);
             gemaIns = true;
         }
         if(gens >= 4){
@@ -39,13 +46,16 @@ public class Game_Controler : MonoBehaviour
             respTime = respTime_init;
             InstantiateEnemys();
         }
-        if(Input.GetKeyDown("q") && menu_open) {
-            game_over.SetActive(false);
-            menu_open = false;
-        }
-        else if(Input.GetKeyDown("q") && !menu_open){
-            menu_open = false;
-            game_over.SetActive(true);
+        if(Input.GetKeyDown("escape")) {
+            if(!menu_open) {
+                game_over.SetActive(true);
+                menu_open = true;
+            }
+
+            else if(menu_open){
+                game_over.SetActive(false);
+                menu_open = false;
+            }
         }
 
         if(timer >= 0){
@@ -84,11 +94,21 @@ public class Game_Controler : MonoBehaviour
         Instantiate(soot, soot.GetComponent<Transform>().position = pos_soot, soot.GetComponent<Transform>().rotation);
     }
     private void setEnemyPos(){
-        pos_blob = new Vector2(Random.Range(12f , 81f), -1);
-        pos_kejoo = new Vector2(Random.Range(12f ,80f), -1.2f);
-        pos_soot = new Vector2(Random.Range(12f, 81f), -1.4f);
+        pos_blob = new Vector2(Random.Range(8f , 81f), -1);
+        pos_kejoo = new Vector2(Random.Range(8f ,80f), -1.2f);
+        pos_soot = new Vector2(Random.Range(8f, 81f), -1.4f);
     }
     public int getGens(){
         return gens;
+    }
+    void Raio(){
+        raio.GetComponent<Light>().enabled = true;
+        raio.GetComponent<Animator>().SetInteger("transition", 1);
+        StartCoroutine(doRaio(0.650f));
+    }
+    IEnumerator doRaio(float tempo){
+        yield return new WaitForSeconds(tempo);
+        raio.GetComponent<Animator>().SetInteger("transition", 0);
+        raio.GetComponent<Light>().enabled = false;
     }
 }

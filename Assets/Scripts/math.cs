@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class math : MonoBehaviour
 {
-    public GameObject gema_vermelha, pia;
+    public GameObject gema_vermelha, jogador;
     private int v_like, v_key, v_paw, v_ope1, v_ope2, opr1, opr2;
     private int value1, value2, value3, value4;
     public TextMeshProUGUI v1, v2, v3, operador1, operador2;
@@ -27,37 +27,21 @@ public class math : MonoBehaviour
     }
     private void calcV4(){
         
-        if(v_ope2 == 2){
-            if(v_ope1 == 0){
-                opr1 = v_like;
-                value4 = opr1 + (v_paw * v_key);
-            }
-            else if(v_ope1 == 1){
-                opr1 = v_like;
-                value4 = opr1 - (v_paw * v_key);
-                value4 = opr1 - (v_paw / v_key);
-            }
-            else if(v_ope1 == 2){
-                opr1 = v_like * v_paw;
-                value4 = opr1 * v_key;
-                value4 = opr1 / v_key;
-            }
-            else {
-                opr1 = v_like / v_paw;
-                value4 = opr1 * v_key;
-            }
-        }
-        else{
-            opr2 = v_key;
-            if(v_ope1 == 0) opr1 = v_like + v_paw;
-            else if(v_ope1 == 1) opr1 = v_like - v_paw;
-            else if(v_ope1 == 2) opr1 = v_like * v_paw;
-            else opr1 = v_like / v_paw;
-
-            if(v_ope2 == 0) value4 = opr1 + opr2;
-            else if(v_ope2 == 1) value4 = opr1 - opr2;
-
-        }
+       if(v_ope1 == 0){
+           if(v_ope2 == 0) value4 = v_like + v_paw + v_key;
+           else if(v_ope2 == 1) value4 = v_like + v_paw - v_key;
+           else value4 = v_like + (v_paw * v_key);
+       }
+       else if(v_ope1 == 1){
+           if(v_ope2 == 0) value4 = v_like - v_paw + v_key;
+           else if(v_ope2 == 1) value4 = v_like - v_paw - v_key;
+           else value4 = v_like - (v_paw * v_key);
+       }
+       else if(v_ope1 == 2){
+           if(v_ope2 == 0) value4 = v_like * v_paw + v_key;
+           else if(v_ope2 == 1) value4 = v_like * v_paw - v_key;
+           else value4 = v_like * v_paw * v_key;
+       }
         Debug.Log(value4);
         
     }
@@ -126,7 +110,7 @@ public class math : MonoBehaviour
             refresh();
         }
         else{
-            Instantiate(gema_vermelha, pia.transform.position, pia.transform.rotation);
+            Instantiate(gema_vermelha, jogador.GetComponent<Transform>().position, jogador.GetComponent<Transform>().rotation);
             Destroy(gameObject);
         }
     }

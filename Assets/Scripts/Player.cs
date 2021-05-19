@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    public GameObject butInteragir;
     public float speed, life;// jump_force;
     public Game_Controler gc;
     public BoxCollider2D flashlight_area;
@@ -38,10 +39,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("e")) butInteragir.SetActive(false);
         if(chave) chaveImage.enabled = true;
         life_bar.fillAmount = life/100;
         if(!isDead){
-            if(Input.GetKeyDown("l")){
+            if(Input.GetKeyDown("f")){
             Flashlight();
             }
             if(flashlight_lit){
@@ -151,5 +153,14 @@ public class Player : MonoBehaviour
             gc.increaseGens();
             other.gameObject.GetComponent<gema>().coletou();
         }
+        if(other.gameObject.tag == "interactive"){
+            butInteragir.SetActive(true);
+        }
     }
+    void OnTriggerExit2D(Collider2D other){
+        if(other.gameObject.tag == "interactive"){
+            butInteragir.SetActive(false);
+        }
+    }
+
 }

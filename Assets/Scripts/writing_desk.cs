@@ -19,9 +19,10 @@ public class writing_desk : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D other){
-        if(other.gameObject.tag == "Player" && Input.GetKeyDown("o")){
+        if(other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
             sprite.sprite = closed;
             gc.interacoes ++;
+            gameObject.tag = "Untagged";
         }
     }
 

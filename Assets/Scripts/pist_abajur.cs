@@ -24,7 +24,7 @@ public class pist_abajur : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
-            if(Input.GetKeyDown("o")){
+            if(Input.GetKeyDown("e")){
                 if(!open){
                     open = true;
                     image.SetActive(true);
@@ -45,6 +45,7 @@ public class pist_abajur : MonoBehaviour
             playerInput.text = "CERTO";
             image.SetActive(false);
             abj.setInteract(true);
+            abj.gameObject.tag = "interactive";
             Destroy(gameObject, 0.2f);
         }
         else{

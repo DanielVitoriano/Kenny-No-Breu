@@ -4,8 +4,8 @@ Jogo desenvolvido para a segunda game Jam do canal [Crie Seus Jogos](https://www
 Download do executável em: https://gamejolt.com/games/kenny/615062
 
 ### Como jogar: 
-TECLA | AÇÂO
-------|-----
+TECLA | AÇÃO
+:-----:|:-----:
 "A" e "D"|Movimentação
 "ESC" |Menu/Fecha as janelas:
 "F" |lanterna

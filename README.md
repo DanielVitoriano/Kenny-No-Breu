@@ -3,6 +3,8 @@ Jogo desenvolvido para a segunda game Jam do canal [Crie Seus Jogos](https://www
 
 Download do executável em: https://gamejolt.com/games/kenny/615062
 
+<img src="https://github.com/DanielVitoriano/Portfolio/blob/main/imagens/kennynobreu.png" />
+
 ### Como jogar: 
 TECLA | AÇÃO
 :-----:|:-----:
